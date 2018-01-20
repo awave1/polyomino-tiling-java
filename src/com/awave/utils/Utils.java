@@ -6,43 +6,68 @@ import com.awave.Polyomino.Shape;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Utils {
-    public static Grid parseFile(String filename) throws FileNotFoundException {
+    public static BoardContents parseFile(String filename) throws FileNotFoundException {
+        BoardContents boardContents = new BoardContents();
+
         File file = new File(filename);
         Scanner filein = new Scanner(file);
 
         int rows = filein.nextInt();
         int cols = filein.nextInt();
-        Grid grid = new Grid(rows, cols);
+
+        boardContents.rows = rows;
+        boardContents.cols = cols;
 
         ArrayList<Shape> shapes = new ArrayList<>();
 
         int shapeCount = filein.nextInt();
         filein.nextLine(); // skip the newline
+
         for (int i = 0; i < shapeCount; i++) {
-            ArrayList<String> shapeFormat =
-                    new ArrayList<>(Arrays.asList(filein.nextLine().split("\\s{2}")));
+            ArrayList<String> shapeFormat = new ArrayList<>(Arrays.asList(filein.nextLine().split("\\s{2}")));
             int blockCount = Integer.parseInt(shapeFormat.remove(0));
-            ArrayList<Block> blocks = new ArrayList<>();
+            Shape shape = new Shape();
 
             if (blockCount == shapeFormat.size()) {
                 shapeFormat.forEach(blockPos -> {
                     String pos[] = blockPos.split("\\s");
-                    int row = Integer.parseInt(pos[0]);
-                    int col = Integer.parseInt(pos[1]);
-                    blocks.add(new Block(row, col));
+                    // fixme: positions are given as x, y => row is pos[1], col is pos[0]
+                    int row = Integer.parseInt(pos[1]);
+                    int col = Integer.parseInt(pos[0]);
+                    shape.addBlock(new Block(row, col));
                 });
             }
-
-            shapes.add(new Shape(blocks));
+            shape.setName(randChar());
+            shapes.add(shape);
         }
 
-        grid.addShapes(shapes);
-        return grid;
+        boardContents.shapes = shapes;
+
+        return boardContents;
+    }
+
+    /**
+     * Pseudo random character generator
+     * @return single random character
+     */
+    public static String randChar() {
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        return String.valueOf(alphabet.charAt(new Random().nextInt(alphabet.length())));
+    }
+
+    public static class BoardContents {
+        public ArrayList<Shape> shapes;
+        public int rows;
+        public int cols;
+    }
+
+    public static void format(String s, Object... args) {
+        System.out.format(s, args);
     }
 }

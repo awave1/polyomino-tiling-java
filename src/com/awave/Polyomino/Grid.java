@@ -1,77 +1,94 @@
 package com.awave.Polyomino;
 
 
+import com.awave.utils.Utils;
+
 import java.util.ArrayList;
 
 public class Grid {
-
     private int rows;
     private int cols;
-    private Block grid[][];
-    private ArrayList<Shape> shapes;
+    private String grid[][];
+
+    private ArrayList<Shape> placedShapes = new ArrayList<>();
 
     public Grid(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
 
-        this.shapes = new ArrayList<>();
-        this.grid = new Block[rows][cols];
+        this.grid = new String[rows][cols];
     }
 
-    public void addShape(Shape shape) {
-        this.shapes.add(shape);
-        this.addBlocksToGrid(shape);
-    }
+    public boolean tryPlaceAt(int row, int col, Shape shape) {
+        boolean isPlaced = canPlace(shape, row, col);
 
-    public void addShapes(ArrayList<Shape> shapes) {
-        this.shapes.addAll(shapes);
-        this.addShapesToGrid(this.shapes);
-    }
-
-    private boolean addToNextOpen(Shape shape) {
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-
-            }
+        if (isPlaced && !placedShapes.contains(shape)) {
+            // Try and place shape
+            shape.forEachBlock(block -> grid[block.getRow() + row][block.getCol() + col] = shape.getName());
+            placedShapes.add(shape);
         }
 
-        return false;
+        return isPlaced;
     }
 
-    private void addBlocksToGrid(Shape shape) {
-        shape.getBlocks().forEach(block -> {
-            int row = block.getRow();
-            int col = block.getCol();
-            if (inBounds(row, col) && !hasBlock(row, col))
-                this.grid[block.getRow()][block.getCol()] = block;
+    public void removeShape(Shape shape) {
+        iterateGrid((row, col) -> {
+            if (grid[row][col] != null && grid[row][col].equals(shape.getName()))
+                grid[row][col] = null;
         });
+        placedShapes.remove(shape);
     }
 
-    private void addShapesToGrid(ArrayList<Shape> shapes) {
-        shapes.forEach(this::addBlocksToGrid);
+    public void iterateGrid(LoopHandler handler) {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                handler.handle(row, col);
+            }
+        }
     }
 
-    private boolean hasBlock(int row, int col) {
-        return this.grid[row][col] != null;
+    public int getRows() {
+        return rows;
     }
 
-    private boolean inBounds(int row, int col) {
-        return ( row >= 0 && row < rows ) && ( col >= 0 && col < cols );
+    public int getCols() {
+        return cols;
+    }
+
+    private boolean canPlace(Shape shape, int row, int col) {
+
+        boolean canPlace = true;
+
+        for (int i = 0; i < shape.getBlocks().size() && canPlace; i++) {
+            Block block = shape.getBlocks().get(i);
+            int _row = block.getRow() + row;
+            int _col = block.getCol() + col;
+
+            if (_row >= rows || _col >= cols || !this.isOpen(_row, _col))
+                canPlace = false;
+        }
+
+        return canPlace;
+    }
+
+    private boolean isOpen(int row, int col) {
+        return grid[row][col] == null;
     }
 
     @Override
     public String toString() {
-        StringBuffer buffer = new StringBuffer();
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                if (hasBlock(row, col))
-                    buffer.append("[*]");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] != null)
+                    sb.append(String.format("[%s]", grid[i][j]));
                 else
-                    buffer.append("[ ]");
+                    sb.append("[ ]");
             }
-            buffer.append("\n");
+            sb.append("\n");
         }
 
-        return buffer.toString();
+        return sb.toString();
     }
 }
