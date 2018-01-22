@@ -7,6 +7,8 @@ import com.awave.Polyomino.Shape;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
+
+import com.awave.utils.Utils;
 import org.junit.Test;
 
 public class ShapeTest {
@@ -104,9 +106,11 @@ public class ShapeTest {
     }
 
     @Test
-    public void rotate_rotate90() throws Exception {
+    public void rotate_rotate90_shouldRotateNoErrors() throws Exception {
+        System.out.println("Rotating 90 degrees");
         shape = new Shape("a");
         grid = new Grid(4, 4);
+        Grid grid2 = new Grid(4, 4);
 
         shape.addBlock(new Block(0, 0));
         shape.addBlock(new Block(0, 1));
@@ -116,18 +120,77 @@ public class ShapeTest {
 
         grid.placeShape(0, 0, shape);
         System.out.println(grid);
-        grid.removeShape(shape);
 
         Shape res = shape.rotate();
-        grid.placeShape(0, 0, res);
+        grid2.placeShape(0, 0, res);
+        System.out.println(grid2);
+
+        assertEquals(res.getHeight(), shape.getWidth());
+        assertEquals(res.getWidth(), shape.getHeight());
+        assertFalse(grid2.equals(grid));
+    }
+
+    @Test
+    public void rotate_rotate180_shouldRotateNoErrors() throws Exception {
+        System.out.println("Rotating 180 degrees");
+        shape = new Shape("a");
+        grid = new Grid(4, 4);
+        Grid grid2 = new Grid(4, 4);
+
+        shape.addBlock(new Block(0, 0));
+        shape.addBlock(new Block(0, 1));
+        shape.addBlock(new Block(1, 0));
+        shape.addBlock(new Block(2, 0));
+        shape.addBlock(new Block(3, 0));
+
+        grid.placeShape(0, 0, shape);
         System.out.println(grid);
-        grid.removeShape(res);
+
+        Shape res = shape.rotate().rotate();
+        grid2.placeShape(0, 0, res);
+        System.out.println(grid2);
+
+        System.out.println(shape);
+        System.out.println(res);
+
+        assertEquals(res.getWidth(), shape.getWidth());
+        assertEquals(res.getHeight(), shape.getHeight());
+        assertFalse(grid2.equals(grid));
+    }
+
+    @Test
+    public void rotate_rotate270_shouldRotateNoErrors() throws Exception {
+        System.out.println("Rotating 270 degrees");
+        shape = new Shape("a");
+        grid = new Grid(4, 4);
+        Grid grid2 = new Grid(4, 4);
+
+        shape.addBlock(new Block(0, 0));
+        shape.addBlock(new Block(0, 1));
+        shape.addBlock(new Block(1, 0));
+        shape.addBlock(new Block(2, 0));
+        shape.addBlock(new Block(3, 0));
+
+        grid.placeShape(0, 0, shape);
+        System.out.println(grid);
+
+        Shape res = shape.rotate().rotate().rotate();
+        grid2.placeShape(0, 0, res);
+        System.out.println(grid2);
+
+        System.out.println(shape);
+        System.out.println(res);
+
+        assertEquals(res.getHeight(), shape.getWidth());
+        assertEquals(res.getWidth(), shape.getHeight());
+        assertFalse(grid2.equals(grid));
     }
 
     @Test
     public void reflect_reflect() throws Exception {
         shape = new Shape("a");
         grid = new Grid(4, 4);
+        Grid grid1 = new Grid(4, 4);
 
         shape.addBlock(new Block(0, 0));
         shape.addBlock(new Block(0, 1));
@@ -136,38 +199,27 @@ public class ShapeTest {
         shape.addBlock(new Block(3, 0));
 
 
-
         grid.placeShape(0, 0, shape);
         System.out.println(grid);
-        grid.removeShape(shape);
 
         Shape res = shape.reflect();
-        res.forEachBlock(System.out::println);
-        grid.placeShape(0,0,shape.reflect());
-        System.out.println(grid);
+        grid1.placeShape(0,0, res);
+        System.out.println(grid1);
+
+        assertEquals(shape.getWidth(), res.getWidth());
+        assertEquals(shape.getHeight(), res.getHeight());
+        assertFalse(grid.equals(grid1));
     }
 
     @Test
     public void transform_all() throws Exception {
         shape = new Shape("a");
-        grid = new Grid(3, 4);
 
         shape.addBlock(new Block(0, 0));
         shape.addBlock(new Block(0, 1));
         shape.addBlock(new Block(0, 2));
         shape.addBlock(new Block(1, 0));
         shape.addBlock(new Block(1, 1));
-
-//        for (Shape shape1 : shape.getTransformedShapes()) {
-//            grid.placeShape(0,0,shape1);
-//            System.out.println(grid);
-//            System.out.println();
-//            grid.removeShape(shape1);
-//        }
-//
-//        grid.placeShape(0, 0, shape.getTransformedShapes().get(0));
-        grid.placeShape(1, 1, shape.getTransformedShapes().get(7));
-        System.out.println(grid);
-
+        assertEquals(8, shape.getTransformedShapes().size());
     }
 }

@@ -16,6 +16,13 @@ public class Grid {
         this.cols = cols;
 
         this.grid = new String[rows][cols];
+
+        initGrid();
+
+    }
+
+    private void initGrid() {
+        iterateGrid((x, y) -> this.grid[y][x] = "");
     }
 
     public boolean placeShape(int x, int y, Shape shape) {
@@ -126,7 +133,7 @@ public class Grid {
 
         for (int y = 0; y < rows; y++) {
             for (int x = 0; x < cols; x++) {
-                if (grid[y][x] != null)
+                if (!grid[y][x].isEmpty())
                     sb.append(String.format("[%s]", grid[y][x]));
                 else
                     sb.append("[ ]");
@@ -135,5 +142,34 @@ public class Grid {
         }
 
         return sb.toString();
+    }
+
+    private boolean compareWith(Grid other) {
+        if (this.rows != other.rows || this.cols != other.cols || this.placedShapes.size() != other.placedShapes.size())
+            return false;
+        else {
+            boolean same = true;
+            for (int y = 0; y < rows && same; y++) {
+                for (int x = 0; x < cols; x++) {
+                    if (!(this.grid[y][x].equals(other.grid[y][x]))) {
+                        same = false;
+                        break;
+                    }
+                }
+            }
+            return same;
+        }
+
+    }
+
+    @Override
+    public boolean equals(Object other) {
+
+        if (other == null || !(other instanceof Grid))
+            return false;
+        else {
+            Grid otherGrid = (Grid) other;
+            return this.compareWith(otherGrid);
+        }
     }
 }

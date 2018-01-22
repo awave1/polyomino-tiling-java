@@ -140,6 +140,10 @@ public class Shape {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Shape{" +
+                "label='" + label + '\'' +
+                ", width=" + width +
+                ", height=" + height +
+                '}';
     }
 }
