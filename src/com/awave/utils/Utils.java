@@ -1,7 +1,6 @@
 package com.awave.utils;
 
 import com.awave.Polyomino.Block;
-import com.awave.Polyomino.Grid;
 import com.awave.Polyomino.Shape;
 
 import java.io.File;
@@ -37,13 +36,12 @@ public class Utils {
             if (blockCount == shapeFormat.size()) {
                 shapeFormat.forEach(blockPos -> {
                     String pos[] = blockPos.split("\\s");
-                    // fixme: positions are given as x, y => row is pos[1], col is pos[0]
-                    int row = Integer.parseInt(pos[1]);
-                    int col = Integer.parseInt(pos[0]);
-                    shape.addBlock(new Block(row, col));
+                    int x = Integer.parseInt(pos[0]);
+                    int y = Integer.parseInt(pos[1]);
+                    shape.addBlock(new Block(x, y));
                 });
             }
-            shape.setName(randChar());
+            shape.setLabel(randChar());
             shapes.add(shape);
         }
 

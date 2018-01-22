@@ -13,9 +13,7 @@ public class Main {
         BoardContents boardContents = Utils.parseFile("p.txt");
         ArrayList<Shape> shapes = boardContents.shapes;
         Grid grid = new Grid(boardContents.rows, boardContents.cols);
-
         PolyominoSolver solver = PolyominoSolver.withGrid(grid);
         solver.solve(shapes);
-
     }
 }

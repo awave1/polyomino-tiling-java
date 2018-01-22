@@ -1,36 +1,40 @@
 package com.awave.Polyomino;
 
 public class Block {
-    private int row;
-    private int col;
-    private String aChar;
+    private int y;
+    private int x;
 
-    public Block(int row, int col) {
-        this.row = row;
-        this.col = col;
+    public Block(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    public int getCol() {
-        return col;
+    public int getX() {
+        return x;
     }
 
-    public void setCol(int col) {
-        this.col = col;
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public int getRow() {
-        return row;
+    public int getY() {
+        return y;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void setY(int y) {
+        this.y = y;
     }
 
     @Override
     public String toString() {
         return "Block{" +
-                "row=" + row +
-                ", col=" + col +
+                "x=" + x +
+                ", y=" + y +
                 '}';
+    }
+
+    public void setPos(int x, int y) {
+        this.setX(x);
+        this.setY(y);
     }
 }

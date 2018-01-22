@@ -4,6 +4,7 @@ package com.awave.Polyomino;
 
 
 import com.awave.utils.Utils;
+import sun.security.provider.SHA;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -14,7 +15,7 @@ import java.util.function.Consumer;
 public class Shape {
     private ArrayList<Block> blocks;
 
-    private String name;
+    private String label;
 
     // By default set width and height to 1
     private int width = 1;
@@ -28,9 +29,9 @@ public class Shape {
         this.blocks = new ArrayList<>();
     }
 
-    public Shape(String name) {
+    public Shape(String label) {
         this.blocks = new ArrayList<>();
-        this.name = name;
+        this.label = label;
     }
 
     public void addBlock(Block block) {
@@ -40,16 +41,16 @@ public class Shape {
 
     private void updateWidthHeight(Block block) {
         if (this.blocks.size() > 1) {
-            if ((block.getCol() + 1) > this.width)
-                this.width = block.getCol() + 1;
+            if ((block.getX() + 1) > this.width)
+                this.width = block.getX() + 1;
 
-            if ((block.getRow() + 1) > this.height)
-                this.height = block.getRow() + 1;
+            if ((block.getY() + 1) > this.height)
+                this.height = block.getY() + 1;
         }
     }
 
-    public void addBlock(int row, int col) {
-        Block block = new Block(row, col);
+    public void addBlock(int x, int y) {
+        Block block = new Block(x, y);
         this.blocks.add(block);
         this.updateWidthHeight(block);
     }
@@ -62,52 +63,15 @@ public class Shape {
      *      - (x, y) => (-x, -y) 180 (row, col) => (-row, -col)
      *      - (x, y) => (y, -x)  270 (row, col) => (col, -row)
      */
-    public Shape rotate(int angle) {
-        Shape shape = this.clone();
+    public Shape rotate() {
+        Shape shape = new Shape(getLabel());
 
-        if (angle == 90 || angle == 270) {
-            int temp = shape.height;
-            shape.height = shape.width;
-            shape.width = temp;
-        }
-
-        if (angle != 0) {
-            shape.forEachBlock(block -> {
-                int newRow;
-                int newCol;
-                // rotate
-                switch (angle) {
-                    case 90:
-                        newRow = -block.getCol();
-                        newCol = block.getRow();
-
-                        newRow += shape.height;
-
-                        block.setRow(newRow);
-                        block.setCol(newCol);
-                        break;
-                    case 180:
-                        newRow = -block.getRow();
-                        newCol = -block.getCol();
-
-                        newRow += (shape.height - 1);
-                        newCol += shape.width;
-
-                        block.setRow(newRow);
-                        block.setCol(newCol);
-                        break;
-                    case 270:
-                        newRow = block.getCol();
-                        newCol = -block.getRow();
-
-                        newCol += shape.width - 1;
-
-                        block.setRow(newRow);
-                        block.setCol(newCol);
-                        break;
-                }
-            });
-        }
+        forEachBlock(block -> {
+            int dx, dy;
+            dx = -block.getY() + (height - 1) ;
+            dy =  block.getX();
+            shape.addBlock(dx, dy);
+        });
 
         return shape;
     }
@@ -118,14 +82,10 @@ public class Shape {
      *      1 - (x, y) => (x, -y)
      */
     public Shape reflect() {
-        Shape shape = this.clone();
-
-        shape.forEachBlock(block -> {
-
-            int col = -block.getCol();
-            col += shape.width;
-            block.setCol(col);
-
+        Shape shape = new Shape(getLabel());
+        forEachBlock(block -> {
+            int dx = -block.getX() + (width - 1);
+            shape.addBlock(dx, block.getY());
         });
 
         return shape;
@@ -137,12 +97,15 @@ public class Shape {
 
     public ArrayList<Shape> getTransformedShapes() {
         ArrayList<Shape> shapes = new ArrayList<>();
+        shapes.add(this);
 
-        for (int angle = 0; angle < 360; angle+=90) {
-            Shape rotated = rotate(angle);
-            shapes.add(rotated);
-            shapes.add(rotated.reflect());
+        for (int i = 0; i < 3; i++) {
+            shapes.add(shapes.get(shapes.size() - 1).rotate());
         }
+
+        shapes.addAll(new ArrayList<Shape>(){{
+            shapes.forEach(shape -> add(shape.reflect()));
+        }});
 
         return shapes;
     }
@@ -159,10 +122,6 @@ public class Shape {
         return this.blocks.size();
     }
 
-    public String getName() {
-        return name;
-    }
-
     public ArrayList<Block> getBlocks() {
         return blocks;
     }
@@ -171,16 +130,12 @@ public class Shape {
         this.blocks.forEach(eachBlock);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
-    public Shape clone() {
-        Shape shape = new Shape(Utils.randChar());
-        for (Block block : this.getBlocks()) {
-            shape.addBlock(new Block(block.getRow(), block.getCol()));
-        }
-        return shape;
+    public String getLabel() {
+        return this.label;
     }
 
     @Override
