@@ -5,10 +5,8 @@ import com.awave.Polyomino.Shape;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils {
     public static BoardContents parseFile(String filename) throws FileNotFoundException {

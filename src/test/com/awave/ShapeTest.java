@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-import com.awave.utils.Utils;
 import org.junit.Test;
 
 public class ShapeTest {
@@ -118,11 +117,11 @@ public class ShapeTest {
         shape.addBlock(new Block(2, 0));
         shape.addBlock(new Block(3, 0));
 
-        grid.placeShape(0, 0, shape);
+        grid.tryPlacingShape(0, 0, shape);
         System.out.println(grid);
 
         Shape res = shape.rotate();
-        grid2.placeShape(0, 0, res);
+        grid2.tryPlacingShape(0, 0, res);
         System.out.println(grid2);
 
         assertEquals(res.getHeight(), shape.getWidth());
@@ -143,11 +142,11 @@ public class ShapeTest {
         shape.addBlock(new Block(2, 0));
         shape.addBlock(new Block(3, 0));
 
-        grid.placeShape(0, 0, shape);
+        grid.tryPlacingShape(0, 0, shape);
         System.out.println(grid);
 
         Shape res = shape.rotate().rotate();
-        grid2.placeShape(0, 0, res);
+        grid2.tryPlacingShape(0, 0, res);
         System.out.println(grid2);
 
         System.out.println(shape);
@@ -171,11 +170,11 @@ public class ShapeTest {
         shape.addBlock(new Block(2, 0));
         shape.addBlock(new Block(3, 0));
 
-        grid.placeShape(0, 0, shape);
+        grid.tryPlacingShape(0, 0, shape);
         System.out.println(grid);
 
         Shape res = shape.rotate().rotate().rotate();
-        grid2.placeShape(0, 0, res);
+        grid2.tryPlacingShape(0, 0, res);
         System.out.println(grid2);
 
         System.out.println(shape);
@@ -199,11 +198,11 @@ public class ShapeTest {
         shape.addBlock(new Block(3, 0));
 
 
-        grid.placeShape(0, 0, shape);
+        grid.tryPlacingShape(0, 0, shape);
         System.out.println(grid);
 
-        Shape res = shape.reflect();
-        grid1.placeShape(0,0, res);
+        Shape res = shape.reflectY();
+        grid1.tryPlacingShape(0,0, res);
         System.out.println(grid1);
 
         assertEquals(shape.getWidth(), res.getWidth());
@@ -215,11 +214,62 @@ public class ShapeTest {
     public void transform_all() throws Exception {
         shape = new Shape("a");
 
-        shape.addBlock(new Block(0, 0));
-        shape.addBlock(new Block(0, 1));
-        shape.addBlock(new Block(0, 2));
-        shape.addBlock(new Block(1, 0));
-        shape.addBlock(new Block(1, 1));
-        assertEquals(8, shape.getTransformedShapes().size());
+        shape.addBlock(0, 0);
+        shape.addBlock(1, 0);
+        shape.addBlock(1, 1);
+        shape.addBlock(2, 0);
+        shape.addBlock(3, 0);
+
+
+        ArrayList<Shape> shapes = shape.getTransformedShapes();
+
+        for (Shape shape1 : shapes) {
+            System.out.println(shape1);
+        }
+
+
+        assertEquals(16, shape.getTransformedShapes().size());
+    }
+
+    @Test
+    public void transform_square() throws Exception {
+        shape = new Shape("a");
+        shape.addBlock(0, 0);
+        shape.addBlock(1, 0);
+        shape.addBlock(2, 0);
+
+        shape.addBlock(0, 1);
+        shape.addBlock(1, 1);
+        shape.addBlock(2, 1);
+
+        shape.addBlock(0, 2);
+        shape.addBlock(1, 2);
+        shape.addBlock(2, 2);
+
+        assertEquals(shape.getTransformedShapes().size(), 1);
+    }
+
+    @Test
+    public void transform_line() throws Exception {
+        shape = new Shape("a");
+        shape.addBlock(0, 0);
+        shape.addBlock(1, 0);
+        shape.addBlock(2, 0);
+
+        assertEquals(shape.getTransformedShapes().size(), 2);
+    }
+
+    @Test
+    public void transform_rectangle() throws Exception {
+        shape = new Shape("a");
+        shape.addBlock(0, 0);
+        shape.addBlock(1, 0);
+        shape.addBlock(2, 0);
+
+        shape.addBlock(0, 0);
+        shape.addBlock(1, 0);
+        shape.addBlock(2, 0);
+
+        assertEquals(shape.getTransformedShapes().size(), 2);
     }
 }

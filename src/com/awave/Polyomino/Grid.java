@@ -1,15 +1,13 @@
 package com.awave.Polyomino;
 
 
-import com.awave.Position;
-
 import java.util.ArrayList;
 
 public class Grid {
-    private int rows;
-    private int cols;
+    public int rows;
+    public int cols;
     private String grid[][];
-    private ArrayList<Shape> placedShapes = new ArrayList<>();
+    private ArrayList<String> placedShapes = new ArrayList<>();
 
     public Grid(int rows, int cols) {
         this.rows = rows;
@@ -18,114 +16,65 @@ public class Grid {
         this.grid = new String[rows][cols];
 
         initGrid();
+    }
 
+    public boolean tryPlacingShape(int x, int y, Shape shape) {
+        boolean canPlace = canPlace(x, y, shape) && !placedShapes.contains(shape.getLabel());
+
+        if (canPlace) {
+            shape.forEachBlock(block -> grid[block.getY() + y][block.getX() + x] = shape.getLabel());
+            placedShapes.add(shape.getLabel());
+        }
+
+        return canPlace;
+    }
+
+    public boolean hasShape(Shape s) {
+        return placedShapes.contains(s.getLabel());
+    }
+
+    private boolean canPlace(int x, int y, Shape shape) {
+        boolean canPlace = true;
+
+        for (Block block : shape.getBlocks()) {
+            int dx = block.getX() + x;
+            int dy = block.getY() + y;
+
+            if (dx < 0 || dy < 0 || dx >= cols || dy >= rows || !isOpen(dx, dy)) {
+                canPlace = false;
+                break;
+            }
+
+        }
+
+        return canPlace;
+    }
+
+    public void removeShape(Shape shape) {
+        iterateGrid((x, y) -> {
+            if (grid[y][x].equals(shape.getLabel()))
+                grid[y][x] = "";
+        });
+        placedShapes.remove(shape.getLabel());
+    }
+
+    private boolean isOpen(int x, int y) {
+        return grid[y][x].isEmpty();
     }
 
     private void initGrid() {
         iterateGrid((x, y) -> this.grid[y][x] = "");
     }
 
-    public boolean placeShape(int x, int y, Shape shape) {
-        boolean placed = false;
-        if (placedShapes.isEmpty()) {
-            shape.forEachBlock(block -> setElementAt(block.getX() + x, block.getY() + y, shape.getLabel()));
-            placedShapes.add(shape);
-            placed = true;
-        } else {
-            ArrayList<Position> positions = getClosestPositions(placedShapes.get(placedShapes.size() - 1));
-            for (Position position : positions) {
-                boolean canPlace = canPlaceShape(position.getX(), position.getY(), shape);
-                if (canPlace) {
-                    for (Block block : shape.getBlocks()) {
-                        int dx = block.getX() + position.getX();
-                        int dy = block.getY() + position.getY();
-                        if (isOpen(dx, dy)) {
-                            setElementAt(dx, dy, shape.getLabel());
-                            block.setPos(dx, dy);
-                        }
-                    }
-                    placedShapes.add(shape);
-                    placed = true;
-                    break;
-                }
-            }
-        }
-
-        return placed;
-    }
-
-    private boolean isOpen(int dx, int dy) {
-        return this.grid[dy][dx] == null;
-    }
-
-    private ArrayList<Position> getClosestPositions(Shape neighbor) {
-        ArrayList<Position> openPositions = new ArrayList<>();
-        for (int y = 0; y < neighbor.getHeight(); y++) {
-            for (int x = 0; x < neighbor.getWidth(); x++) {
-                if (this.grid[y][x] == null)
-                    openPositions.add(new Position(x, y));
-            }
-        }
-
-        return openPositions;
-    }
-
-    public void removeShape(Shape shape) {
-        iterateGrid((x, y) -> {
-            if (this.grid[y][x] != null && getElementAt(x, y).equals(shape.getLabel()))
-                removeElementAt(x, y);
-        });
-        placedShapes.remove(shape);
-    }
-
-    private boolean canPlaceShape(int x, int y, Shape shape) {
-
-        boolean canPlace = true;
-
-        for (int i = 0; i < shape.getBlocks().size() && canPlace; i++) {
-            Block block = shape.getBlocks().get(i);
-            int dx = block.getX() + x;
-            int dy = block.getY() + y;
-
-            if (dy >= rows || dx >= cols || !this.hasElementAt(dx, dy))
-                canPlace = false;
-        }
-
-        return canPlace;
-    }
-
-    private boolean hasElementAt(int x, int y) {
-        return this.grid[y][x] == null;
-    }
-
-    public void iterateGrid(LoopHandler handler) {
-        for (int y = 0; y < rows; y++) {
-            for (int x = 0; x < cols; x++) {
+    private void iterateGrid(LoopHandler handler) {
+        for (int y = 0; y < rows; y++)
+            for (int x = 0; x < cols; x++)
                 handler.handle(x, y);
-            }
-        }
     }
 
-    private String getElementAt(int x, int y) {
-        return grid[y][x];
+    public int shapeCount() {
+        return placedShapes.size();
     }
-
-    private void setElementAt(int x, int y, String el) {
-        this.grid[y][x] = el;
-    }
-
-    private void removeElementAt(int x, int y) {
-        setElementAt(x, y, null);
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public int getCols() {
-        return cols;
-    }
-
 
     @Override
     public String toString() {

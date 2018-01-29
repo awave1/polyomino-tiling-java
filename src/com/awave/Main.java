@@ -1,19 +1,18 @@
 package com.awave;
 
-import com.awave.Polyomino.Grid;
-import com.awave.Polyomino.Shape;
-import com.awave.utils.Utils;
-import com.awave.utils.Utils.BoardContents;
-
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import com.awave.utils.BoardRunner;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
-        BoardContents boardContents = Utils.parseFile("p.txt");
-        ArrayList<Shape> shapes = boardContents.shapes;
-        Grid grid = new Grid(boardContents.rows, boardContents.cols);
-        PolyominoSolver solver = PolyominoSolver.withGrid(grid);
-        solver.solve(shapes);
+    public static void main(String[] args) {
+        BoardRunner boardRunner = new BoardRunner();
+        boardRunner.addBoards(
+                "simple1-success.txt",
+                "simple2-success.txt",
+                "simple3-success.txt",
+                "simple4-success.txt",
+                "fail1.txt",
+                "fail2.txt"
+        );
+        boardRunner.runAll();
     }
 }

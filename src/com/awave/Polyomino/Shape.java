@@ -3,9 +3,6 @@ package com.awave.Polyomino;
 // todo: refactor to x and y
 
 
-import com.awave.utils.Utils;
-import sun.security.provider.SHA;
-
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
@@ -18,8 +15,9 @@ public class Shape {
     private String label;
 
     // By default set width and height to 1
-    private int width = 1;
-    private int height = 1;
+    private int width  = 0;
+    private int height = 0;
+    private int firstOccupiedBlockIndex;
 
     public Shape(ArrayList<Block> blocks) {
         this.blocks = blocks;
@@ -39,20 +37,14 @@ public class Shape {
         this.updateWidthHeight(block);
     }
 
-    private void updateWidthHeight(Block block) {
-        if (this.blocks.size() > 1) {
-            if ((block.getX() + 1) > this.width)
-                this.width = block.getX() + 1;
-
-            if ((block.getY() + 1) > this.height)
-                this.height = block.getY() + 1;
-        }
-    }
-
     public void addBlock(int x, int y) {
         Block block = new Block(x, y);
-        this.blocks.add(block);
-        this.updateWidthHeight(block);
+        this.addBlock(block);
+    }
+
+    private void updateWidthHeight(Block block) {
+        width  = Math.max(block.getX() + 1, width);
+        height = Math.max(block.getY() + 1, height);
     }
 
     /**
@@ -66,12 +58,12 @@ public class Shape {
     public Shape rotate() {
         Shape shape = new Shape(getLabel());
 
-        forEachBlock(block -> {
+        for (Block block : getBlocks()) {
             int dx, dy;
             dx = -block.getY() + (height - 1) ;
             dy =  block.getX();
             shape.addBlock(dx, dy);
-        });
+        }
 
         return shape;
     }
@@ -81,11 +73,21 @@ public class Shape {
      *      0 - (x, y) => (-x, y)
      *      1 - (x, y) => (x, -y)
      */
-    public Shape reflect() {
+    public Shape reflectY() {
         Shape shape = new Shape(getLabel());
         forEachBlock(block -> {
             int dx = -block.getX() + (width - 1);
             shape.addBlock(dx, block.getY());
+        });
+
+        return shape;
+    }
+
+    public Shape reflectX() {
+        Shape shape = new Shape(getLabel());
+        forEachBlock(block -> {
+            int dy = -block.getY() + (height - 1);
+            shape.addBlock(block.getX(), dy);
         });
 
         return shape;
@@ -99,13 +101,25 @@ public class Shape {
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(this);
 
-        for (int i = 0; i < 3; i++) {
-            shapes.add(shapes.get(shapes.size() - 1).rotate());
-        }
+        if (!this.isSquare() && !this.isLine() && !this.isRectangle()) {
 
-        shapes.addAll(new ArrayList<Shape>(){{
-            shapes.forEach(shape -> add(shape.reflect()));
-        }});
+            for (int i = 0; i < 3; i++) {
+                Shape rotated = shapes.get(shapes.size() - 1).rotate();
+                shapes.add(rotated);
+            }
+
+            shapes.addAll(new ArrayList<Shape>(){{
+                shapes.forEach(shape -> add(shape.reflectX()));
+            }});
+
+            shapes.addAll(new ArrayList<Shape>() {{
+                shapes.forEach(shape -> add(shape.reflectY()));
+            }});
+
+
+        } else if (this.isLine() || this.isRectangle()) {
+            shapes.add(this.rotate());
+        }
 
         return shapes;
     }
@@ -140,10 +154,36 @@ public class Shape {
 
     @Override
     public String toString() {
-        return "Shape{" +
+        Grid grid = new Grid(height, width);
+        grid.tryPlacingShape(0, 0, this);
+        String gridResult = grid.toString();
+        grid.removeShape(this);
+
+        StringBuilder sb = new StringBuilder();
+        String shapeInfo = "Shape{" +
                 "label='" + label + '\'' +
                 ", width=" + width +
                 ", height=" + height +
                 '}';
+        sb.append(shapeInfo).append("\n").append(gridResult);
+
+        return sb.toString();
+    }
+
+    private boolean isSquare() {
+        return width == height && (width * height) == getBlocks().size();
+    }
+
+    private boolean isRectangle() {
+        return (width * height) == getBlocks().size();
+    }
+
+    private boolean isLine() {
+        return width == 1 || height == 1;
+    }
+
+    public int getFirstOccupiedBlockIndex() {
+
+        return firstOccupiedBlockIndex;
     }
 }

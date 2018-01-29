@@ -1,36 +1,50 @@
 package com.awave;
 
 import com.awave.Polyomino.Grid;
-import com.awave.Polyomino.LoopHandler;
 import com.awave.Polyomino.Shape;
-import sun.security.provider.SHA;
 
 import java.util.ArrayList;
 
 public class PolyominoSolver {
 
     private Grid grid;
-    private static PolyominoSolver solver;
+    private ArrayList<Shape> shapes;
 
-    private PolyominoSolver(Grid g) {
+    public PolyominoSolver(Grid g, ArrayList<Shape> shapes) {
         this.grid = g;
+        this.shapes = shapes;
     }
 
-    public static PolyominoSolver withGrid(Grid g) {
-        if (solver == null)
-            solver = new PolyominoSolver(g);
-        return solver;
+    public void solve() {
+        System.out.println(this.recursiveSolve() ? grid : "No solution found.");
     }
 
-    public void solve(ArrayList<Shape> shapes) {
-        System.out.println();
-        System.out.println((this.solve(shapes, shapes.size())));
-        System.out.println(grid);
-    }
+    /**
+     * Recursive solver
+     *
+     * @return
+     */
+    private boolean recursiveSolve() {
 
-    private boolean solve(ArrayList<Shape> shapes, int elementCount) {
+        // Base case - done when there are no shapes left to place
+        if (shapes.size() == grid.shapeCount())
+            return true;
 
+        // Iterative + recursive backtracking case
+        for (Shape shape : shapes) {
+            ArrayList<Shape> transformedShapes = shape.getTransformedShapes();
+            for (Shape transformedShape : transformedShapes) {
+                for (int y = 0; y < grid.rows; y++) {
+                    for (int x = 0; x < grid.cols; x++) {
+                        if (grid.tryPlacingShape(x, y, transformedShape)) {
+                            if (recursiveSolve()) return true;
 
+                            grid.removeShape(transformedShape);
+                        }
+                    }
+                }
+            }
+        }
 
         return false;
     }
