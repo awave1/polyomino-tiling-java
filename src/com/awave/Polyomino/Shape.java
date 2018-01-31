@@ -1,8 +1,5 @@
 package com.awave.Polyomino;
 
-// todo: refactor to x and y
-
-
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
@@ -50,10 +47,7 @@ public class Shape {
     /**
      * Rotation map:
      *        (row, col)
-     *      - (x, y) => (x, y)   0
-     *      - (x, y) => (-y, x)  90 (row, col) => (-col, row)
-     *      - (x, y) => (-x, -y) 180 (row, col) => (-row, -col)
-     *      - (x, y) => (y, -x)  270 (row, col) => (col, -row)
+     *      - (x, y) => (-y, x)
      */
     public Shape rotate() {
         Shape shape = new Shape(getLabel());
@@ -99,22 +93,17 @@ public class Shape {
 
     public ArrayList<Shape> getTransformedShapes() {
         ArrayList<Shape> shapes = new ArrayList<>();
+        ArrayList<Shape> temp = new ArrayList<>(4);
         shapes.add(this);
 
         if (!this.isSquare() && !this.isLine() && !this.isRectangle()) {
 
-            for (int i = 0; i < 3; i++) {
-                Shape rotated = shapes.get(shapes.size() - 1).rotate();
-                shapes.add(rotated);
-            }
+            for (int i = 0; i < 3; i++)
+                shapes.add(shapes.get(shapes.size() - 1).rotate());
 
-            shapes.addAll(new ArrayList<Shape>(){{
-                shapes.forEach(shape -> add(shape.reflectX()));
-            }});
-
-            shapes.addAll(new ArrayList<Shape>() {{
-                shapes.forEach(shape -> add(shape.reflectY()));
-            }});
+            shapes.forEach(shape -> temp.add(shape.reflectX()));
+            shapes.addAll(new ArrayList<Shape>(){{ shapes.forEach(shape -> add(shape.reflectY())); }});
+            shapes.addAll(temp);
 
 
         } else if (this.isLine() || this.isRectangle()) {

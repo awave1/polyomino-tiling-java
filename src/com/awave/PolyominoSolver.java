@@ -32,12 +32,13 @@ public class PolyominoSolver {
 
         // Iterative + recursive backtracking case
         for (Shape shape : shapes) {
-            ArrayList<Shape> transformedShapes = shape.getTransformedShapes();
-            for (Shape transformedShape : transformedShapes) {
+            for (Shape transformedShape : shape.getTransformedShapes()) {
                 for (int y = 0; y < grid.rows; y++) {
                     for (int x = 0; x < grid.cols; x++) {
                         if (grid.tryPlacingShape(x, y, transformedShape)) {
-                            if (recursiveSolve()) return true;
+                            System.out.println(grid);
+                            if (recursiveSolve())
+                                return true;
 
                             grid.removeShape(transformedShape);
                         }

@@ -220,15 +220,10 @@ public class ShapeTest {
         shape.addBlock(2, 0);
         shape.addBlock(3, 0);
 
-
         ArrayList<Shape> shapes = shape.getTransformedShapes();
+        shapes.forEach(System.out::println);
 
-        for (Shape shape1 : shapes) {
-            System.out.println(shape1);
-        }
-
-
-        assertEquals(16, shape.getTransformedShapes().size());
+        assertEquals(12, shape.getTransformedShapes().size());
     }
 
     @Test

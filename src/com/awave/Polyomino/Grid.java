@@ -121,4 +121,15 @@ public class Grid {
             return this.compareWith(otherGrid);
         }
     }
+
+    public boolean isFull() {
+        int emptyCount = 0;
+        for (int y = 0; y < rows; y++) {
+            for (int x = 0; x < cols; x++) {
+                if (grid[y][x].isEmpty())
+                    emptyCount++;
+            }
+        }
+        return emptyCount == 0;
+    }
 }
