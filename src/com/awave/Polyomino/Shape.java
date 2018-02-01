@@ -1,6 +1,8 @@
 package com.awave.Polyomino;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.function.Consumer;
 
 /**
@@ -12,7 +14,7 @@ public class Shape {
     private String label;
 
     // By default set width and height to 1
-    private int width  = 0;
+    private int width = 0;
     private int height = 0;
     private int firstOccupiedBlockIndex;
 
@@ -40,22 +42,22 @@ public class Shape {
     }
 
     private void updateWidthHeight(Block block) {
-        width  = Math.max(block.getX() + 1, width);
+        width = Math.max(block.getX() + 1, width);
         height = Math.max(block.getY() + 1, height);
     }
 
     /**
      * Rotation map:
-     *        (row, col)
-     *      - (x, y) => (-y, x)
+     * (row, col)
+     * - (x, y) => (-y, x)
      */
     public Shape rotate() {
         Shape shape = new Shape(getLabel());
 
         for (Block block : getBlocks()) {
             int dx, dy;
-            dx = -block.getY() + (height - 1) ;
-            dy =  block.getX();
+            dx = -block.getY() + (height - 1);
+            dy = block.getX();
             shape.addBlock(dx, dy);
         }
 
@@ -64,8 +66,8 @@ public class Shape {
 
     /**
      * Reflection:
-     *      0 - (x, y) => (-x, y)
-     *      1 - (x, y) => (x, -y)
+     * 0 - (x, y) => (-x, y)
+     * 1 - (x, y) => (x, -y)
      */
     public Shape reflectY() {
         Shape shape = new Shape(getLabel());
@@ -102,7 +104,9 @@ public class Shape {
                 shapes.add(shapes.get(shapes.size() - 1).rotate());
 
             shapes.forEach(shape -> temp.add(shape.reflectX()));
-            shapes.addAll(new ArrayList<Shape>(){{ shapes.forEach(shape -> add(shape.reflectY())); }});
+            shapes.addAll(new ArrayList<Shape>() {{
+                shapes.forEach(shape -> add(shape.reflectY()));
+            }});
             shapes.addAll(temp);
 
 
@@ -110,15 +114,36 @@ public class Shape {
             shapes.add(this.rotate());
         }
 
-        ArrayList<Shape> unique = new ArrayList<>();
-        for (Shape shape : shapes) {
-            if (!unique.contains(shape))
-                unique.add(shape);
-            else
-                unique.remove(shape);
+        return shapes;
+    }
+
+
+    public HashSet<Shape> uniqueShapes() {
+        ArrayList<Shape> shapes = new ArrayList<>();
+        ArrayList<Shape> temp = new ArrayList<>(4);
+        shapes.add(this);
+
+        int id = 0;
+
+        if (!this.isSquare() && !this.isLine() && !this.isRectangle()) {
+
+            for (int i = 0; i < 3; i++)
+                shapes.add(shapes.get(shapes.size() - 1).rotate());
+
+            shapes.forEach(shape -> temp.add(shape.reflectX()));
+            shapes.addAll(new ArrayList<Shape>() {{
+                shapes.forEach(shape -> add(shape.reflectY()));
+            }});
+            shapes.addAll(temp);
+
+
+        } else if (this.isLine() || this.isRectangle()) {
+            shapes.add(this.rotate());
         }
 
-        return shapes;
+        HashSet<Shape> unique = new HashSet<>(shapes);
+
+        return unique;
     }
 
     public int getWidth() {
@@ -196,12 +221,12 @@ public class Shape {
         if (height != shape.height) return false;
         if (!blocks.equals(shape.blocks)) return false;
 
-        for (int i = 0; i < blocks.size() && blocksMatch; i++) {
+        for (int i = 0; i < blocks.size(); i++) {
             Block a = blocks.get(i);
-            for (int j = 0; j < shape.blocks.size(); j++) {
-                Block b = shape.blocks.get(j);
-                if (!a.equals(b))
-                    blocksMatch = false;
+            Block b = shape.blocks.get(i);
+            if (!a.equals(b)) {
+                blocksMatch = false;
+                break;
             }
         }
 
@@ -215,6 +240,11 @@ public class Shape {
         result = 31 * result + label.hashCode();
         result = 31 * result + width;
         result = 31 * result + height;
+
+        for (Block block : blocks) {
+            result += block.hashCode();
+        }
+
         return result;
     }
 }

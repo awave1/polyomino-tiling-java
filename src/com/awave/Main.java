@@ -7,7 +7,11 @@ public class Main {
 
         BoardRunner boardRunner = new BoardRunner();
         if (args.length == 0)
-            boardRunner.addBoards("medium1-success.txt", "medium2-success.txt");
+            boardRunner.addBoards(
+                    "simple1-success.txt", "simple2-success.txt",
+                    "simple3-success.txt", "simple4-success.txt",
+                    "medium1-success.txt", "medium2-success.txt"
+            );
         else
             boardRunner.addBoards(args);
         boardRunner.runAll();

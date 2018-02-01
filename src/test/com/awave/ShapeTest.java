@@ -5,6 +5,7 @@ import com.awave.Polyomino.Grid;
 import com.awave.Polyomino.Shape;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import static org.junit.Assert.*;
 
@@ -220,8 +221,21 @@ public class ShapeTest {
         shape.addBlock(2, 0);
         shape.addBlock(3, 0);
 
-        ArrayList<Shape> shapes = shape.getTransformedShapes();
-        shapes.forEach(System.out::println);
+        Shape shape2 = new Shape("a");
+
+        shape2.addBlock(0, 0);
+        shape2.addBlock(1, 0);
+        shape2.addBlock(1, 1);
+        shape2.addBlock(2, 0);
+        shape2.addBlock(3, 0);
+
+        System.out.println(shape.equals(shape2));
+
+        HashSet<Shape> shapes = shape.uniqueShapes();
+        shapes.forEach(shape1 -> {
+            System.out.println(shape1.hashCode());
+            System.out.println(shape1);
+        });
 
         assertEquals(12, shape.getTransformedShapes().size());
     }
@@ -279,6 +293,5 @@ public class ShapeTest {
         shape.addBlock(3, 0);
 
         System.out.println(shape.rotate());
-        shape.rotateCurrent();
     }
 }
