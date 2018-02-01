@@ -36,11 +36,10 @@ public class PolyominoSolver {
                 for (int y = 0; y < grid.rows; y++) {
                     for (int x = 0; x < grid.cols; x++) {
                         if (grid.tryPlacingShape(x, y, transformedShape)) {
-                            System.out.println(grid);
                             if (recursiveSolve())
                                 return true;
-
-                            grid.removeShape(transformedShape);
+                            else
+                                grid.removeShape(transformedShape);
                         }
                     }
                 }

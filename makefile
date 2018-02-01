@@ -6,6 +6,9 @@ MAIN = com.awave.Main
 all: build
 	java -cp $(CLASS_DIR) $(MAIN) 
 
+run: build
+	java -cp $(CLASS_DIR) $(MAIN) 
+
 
 build:
 	@mkdir -p $(CLASS_DIR)
