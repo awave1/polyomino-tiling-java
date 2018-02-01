@@ -37,4 +37,22 @@ public class Block {
         this.setX(x);
         this.setY(y);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Block block = (Block) o;
+
+        if (y != block.y) return false;
+        return x == block.x;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = y;
+        result = 31 * result + x;
+        return result;
+    }
 }

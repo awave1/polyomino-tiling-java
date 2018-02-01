@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13bbaa8e-cbb5-424b-aa58-4a3c5f69226d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/medium2-success.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/makefile" afterPath="$PROJECT_DIR$/makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/medium1-success.txt" afterPath="$PROJECT_DIR$/medium1-success.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/awave/Main.java" afterPath="$PROJECT_DIR$/src/com/awave/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/awave/PolyominoSolver.java" afterPath="$PROJECT_DIR$/src/com/awave/PolyominoSolver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java" afterPath="$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/awave/ShapeTest.java" afterPath="$PROJECT_DIR$/src/test/com/awave/ShapeTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +18,8 @@
       <file leaf-file-name="PolyominoSolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/awave/PolyominoSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+            <state relative-caret-position="181">
+              <caret line="34" column="64" lean-forward="false" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#356#357#0" expanded="true" />
@@ -33,23 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/awave/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="medium1-success.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/medium1-success.txt">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -78,39 +62,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Shape.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="93" column="28" lean-forward="false" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
+            <state relative-caret-position="271">
+              <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#402#403#0" expanded="true" />
                 <element signature="e#438#439#0" expanded="true" />
                 <element signature="e#460#461#0" expanded="true" />
                 <element signature="e#507#508#0" expanded="true" />
-                <element signature="e#2052#2053#0" expanded="true" />
-                <element signature="e#2098#2099#0" expanded="true" />
-                <element signature="e#2837#2838#0" expanded="true" />
-                <element signature="e#2865#2866#0" expanded="true" />
-                <element signature="e#2895#2896#0" expanded="true" />
-                <element signature="e#2924#2925#0" expanded="true" />
-                <element signature="e#2949#2950#0" expanded="true" />
-                <element signature="e#2990#2991#0" expanded="true" />
-                <element signature="e#3033#3034#0" expanded="true" />
-                <element signature="e#3062#3063#0" expanded="true" />
-                <element signature="e#3121#3122#0" expanded="true" />
-                <element signature="e#3167#3168#0" expanded="true" />
-                <element signature="e#3209#3210#0" expanded="true" />
-                <element signature="e#3243#3244#0" expanded="true" />
-                <element signature="e#3275#3276#0" expanded="true" />
-                <element signature="e#3308#3309#0" expanded="true" />
-                <element signature="e#3878#3879#0" expanded="true" />
-                <element signature="e#3958#3959#0" expanded="true" />
-                <element signature="e#3995#3996#0" expanded="true" />
-                <element signature="e#4056#4057#0" expanded="true" />
-                <element signature="e#4088#4089#0" expanded="true" />
-                <element signature="e#4136#4137#0" expanded="true" />
+                <element signature="e#2513#2514#0" expanded="true" />
+                <element signature="e#2559#2560#0" expanded="true" />
+                <element signature="e#3298#3299#0" expanded="true" />
+                <element signature="e#3326#3327#0" expanded="true" />
+                <element signature="e#3356#3357#0" expanded="true" />
+                <element signature="e#3385#3386#0" expanded="true" />
+                <element signature="e#3410#3411#0" expanded="true" />
+                <element signature="e#3451#3452#0" expanded="true" />
+                <element signature="e#3494#3495#0" expanded="true" />
+                <element signature="e#3523#3524#0" expanded="true" />
+                <element signature="e#3582#3583#0" expanded="true" />
+                <element signature="e#3628#3629#0" expanded="true" />
+                <element signature="e#3670#3671#0" expanded="true" />
+                <element signature="e#3704#3705#0" expanded="true" />
+                <element signature="e#3736#3737#0" expanded="true" />
+                <element signature="e#3769#3770#0" expanded="true" />
+                <element signature="e#4339#4340#0" expanded="true" />
+                <element signature="e#4419#4420#0" expanded="true" />
+                <element signature="e#4456#4457#0" expanded="true" />
+                <element signature="e#4517#4518#0" expanded="true" />
+                <element signature="e#4549#4550#0" expanded="true" />
+                <element signature="e#4597#4598#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,7 +103,7 @@
       <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Block.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
+            <state relative-caret-position="468">
               <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
               <folding />
             </state>
@@ -129,15 +113,9 @@
       <file leaf-file-name="ShapeTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/awave/ShapeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="222" column="14" lean-forward="false" selection-start-line="222" selection-start-column="14" selection-end-line="222" selection-end-column="14" />
-              <folding>
-                <marker date="1517426969081" expanded="true" signature="6535:6597" ph="//..." />
-                <marker date="1517426969081" expanded="true" signature="6535:6603" ph="{...}" />
-                <marker date="1517426969081" expanded="true" signature="6667:7041" ph="{...}" />
-                <marker date="1517426969081" expanded="true" signature="7103:7295" ph="{...}" />
-                <marker date="1517426969081" expanded="true" signature="7362:7645" ph="{...}" />
-              </folding>
+            <state relative-caret-position="305">
+              <caret line="280" column="8" lean-forward="false" selection-start-line="280" selection-start-column="8" selection-end-line="280" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +141,6 @@
                 <element signature="e#1125#1375#0" expanded="false" />
                 <marker date="1517426969079" expanded="false" signature="1555:1646" ph="/**...*/" />
                 <marker date="1517426969079" expanded="false" signature="1683:1835" ph="{...}" />
-                <marker date="1517426969079" expanded="true" signature="1875:1972" ph="{...}" />
                 <marker date="1517426969079" expanded="false" signature="2029:2040" ph=" { " />
                 <marker date="1517426969079" expanded="false" signature="2067:2073" ph=" }" />
               </folding>
@@ -216,13 +193,13 @@
         <option value="$PROJECT_DIR$/src/com/awave/utils/BoardRunner.java" />
         <option value="$PROJECT_DIR$/src/com/awave/utils/Utils.java" />
         <option value="$PROJECT_DIR$/src/com/awave/Polyomino/Grid.java" />
-        <option value="$PROJECT_DIR$/src/test/com/awave/ShapeTest.java" />
         <option value="$PROJECT_DIR$/makefile" />
-        <option value="$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java" />
         <option value="$PROJECT_DIR$/medium2-success.txt" />
         <option value="$PROJECT_DIR$/medium1-success.txt" />
         <option value="$PROJECT_DIR$/src/com/awave/PolyominoSolver.java" />
         <option value="$PROJECT_DIR$/src/com/awave/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java" />
+        <option value="$PROJECT_DIR$/src/test/com/awave/ShapeTest.java" />
       </list>
     </option>
   </component>
@@ -347,7 +324,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.ShapeTest.rotateCurrent_shouldRotatate">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -366,6 +343,31 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="polyomino_tiling" />
       <envs />
+    </configuration>
+    <configuration name="ShapeTest.rotateCurrent_shouldRotatate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.com.awave.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="polyomino_tiling" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.com.awave" />
+      <option name="MAIN_CLASS_NAME" value="test.com.awave.ShapeTest" />
+      <option name="METHOD_NAME" value="rotateCurrent_shouldRotatate" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
     </configuration>
     <configuration name="ShapeTest.transform_all" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -405,31 +407,6 @@
       <option name="PACKAGE_NAME" value="test.com.awave" />
       <option name="MAIN_CLASS_NAME" value="test.com.awave.ShapeTest" />
       <option name="METHOD_NAME" value="transform_cross" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="ShapeTest.transform_line" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="test.com.awave.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="polyomino_tiling" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="test.com.awave" />
-      <option name="MAIN_CLASS_NAME" value="test.com.awave.ShapeTest" />
-      <option name="METHOD_NAME" value="transform_line" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -484,18 +461,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_line" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_cross" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_all" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UtilTest.rand_test" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_cross" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_all" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.UtilTest.rand_test" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ShapeTest.rotateCurrent_shouldRotatate" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_all" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UtilTest.rand_test" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_cross" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_line" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ShapeTest.rotateCurrent_shouldRotatate" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_all" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.UtilTest.rand_test" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ShapeTest.transform_cross" />
       </list>
     </recent_temporary>
   </component>
@@ -536,39 +513,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 17m 07s.xml">
-      <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
+    <history-entry file="ShapeTest_rotateCurrent_shouldRotatate - 2018.01.31 at 17h 14m 53s.xml">
+      <configuration name="ShapeTest.rotateCurrent_shouldRotatate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 18m 35s.xml">
-      <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
+    <history-entry file="ShapeTest_rotateCurrent_shouldRotatate - 2018.01.31 at 17h 16m 57s.xml">
+      <configuration name="ShapeTest.rotateCurrent_shouldRotatate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 18m 55s.xml">
-      <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
+    <history-entry file="ShapeTest_rotateCurrent_shouldRotatate - 2018.01.31 at 17h 17m 24s.xml">
+      <configuration name="ShapeTest.rotateCurrent_shouldRotatate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 27m 34s.xml">
-      <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
+    <history-entry file="ShapeTest_rotateCurrent_shouldRotatate - 2018.01.31 at 17h 19m 33s.xml">
+      <configuration name="ShapeTest.rotateCurrent_shouldRotatate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 35m 09s.xml">
-      <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
+    <history-entry file="ShapeTest_rotateCurrent_shouldRotatate - 2018.01.31 at 17h 19m 41s.xml">
+      <configuration name="ShapeTest.rotateCurrent_shouldRotatate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 35m 50s.xml">
-      <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
+    <history-entry file="ShapeTest_rotateCurrent_shouldRotatate - 2018.01.31 at 17h 20m 34s.xml">
+      <configuration name="ShapeTest.rotateCurrent_shouldRotatate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 36m 06s.xml">
-      <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
+    <history-entry file="ShapeTest_rotateCurrent_shouldRotatate - 2018.01.31 at 17h 20m 52s.xml">
+      <configuration name="ShapeTest.rotateCurrent_shouldRotatate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 37m 54s.xml">
-      <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
+    <history-entry file="ShapeTest_rotateCurrent_shouldRotatate - 2018.01.31 at 17h 21m 32s.xml">
+      <configuration name="ShapeTest.rotateCurrent_shouldRotatate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 38m 32s.xml">
-      <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
+    <history-entry file="ShapeTest_rotateCurrent_shouldRotatate - 2018.01.31 at 17h 21m 45s.xml">
+      <configuration name="ShapeTest.rotateCurrent_shouldRotatate" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ShapeTest_transform_all - 2018.01.30 at 20h 38m 51s.xml">
       <configuration name="ShapeTest.transform_all" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133813000" />
+    <option name="totallyTimeSpent" value="134598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="26" y="0" width="1654" height="1050" extended-state="6" />
@@ -583,7 +560,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.50215983" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4617801" sideWeight="0.49784017" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4617801" sideWeight="0.49784017" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -733,14 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/com/awave/GridTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -801,21 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/awave/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-          <folding>
-            <element signature="e#1125#1375#0" expanded="false" />
-            <marker date="1517426969079" expanded="false" signature="1555:1646" ph="/**...*/" />
-            <marker date="1517426969079" expanded="false" signature="1683:1835" ph="{...}" />
-            <marker date="1517426969079" expanded="true" signature="1875:1972" ph="{...}" />
-            <marker date="1517426969079" expanded="false" signature="2029:2040" ph=" { " />
-            <marker date="1517426969079" expanded="false" signature="2067:2073" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fail1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -841,16 +795,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/awave/ShapeTest.java">
+    <entry file="file://$PROJECT_DIR$/complex-success.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="222" column="14" lean-forward="false" selection-start-line="222" selection-start-column="14" selection-end-line="222" selection-end-column="14" />
+        <state relative-caret-position="54">
+          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/medium2-success.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/medium1-success.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/awave/PolyominoSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="34" column="64" lean-forward="false" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
           <folding>
-            <marker date="1517426969081" expanded="true" signature="6535:6597" ph="//..." />
-            <marker date="1517426969081" expanded="true" signature="6535:6603" ph="{...}" />
-            <marker date="1517426969081" expanded="true" signature="6667:7041" ph="{...}" />
-            <marker date="1517426969081" expanded="true" signature="7103:7295" ph="{...}" />
-            <marker date="1517426969081" expanded="true" signature="7362:7645" ph="{...}" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/awave/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+          <folding>
+            <element signature="e#1125#1375#0" expanded="false" />
+            <marker date="1517426969079" expanded="false" signature="1555:1646" ph="/**...*/" />
+            <marker date="1517426969079" expanded="false" signature="1683:1835" ph="{...}" />
+            <marker date="1517426969079" expanded="false" signature="2029:2040" ph=" { " />
+            <marker date="1517426969079" expanded="false" signature="2067:2073" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -865,46 +854,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/complex-success.txt">
+    <entry file="file://$PROJECT_DIR$/src/com/awave/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="93" column="28" lean-forward="false" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#507#508#0" expanded="true" />
-            <element signature="e#2052#2053#0" expanded="true" />
-            <element signature="e#2098#2099#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
-            <element signature="e#2865#2866#0" expanded="true" />
-            <element signature="e#2895#2896#0" expanded="true" />
-            <element signature="e#2924#2925#0" expanded="true" />
-            <element signature="e#2949#2950#0" expanded="true" />
-            <element signature="e#2990#2991#0" expanded="true" />
-            <element signature="e#3033#3034#0" expanded="true" />
-            <element signature="e#3062#3063#0" expanded="true" />
-            <element signature="e#3121#3122#0" expanded="true" />
-            <element signature="e#3167#3168#0" expanded="true" />
-            <element signature="e#3209#3210#0" expanded="true" />
-            <element signature="e#3243#3244#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
-            <element signature="e#3308#3309#0" expanded="true" />
-            <element signature="e#3878#3879#0" expanded="true" />
-            <element signature="e#3958#3959#0" expanded="true" />
-            <element signature="e#3995#3996#0" expanded="true" />
-            <element signature="e#4056#4057#0" expanded="true" />
-            <element signature="e#4088#4089#0" expanded="true" />
-            <element signature="e#4136#4137#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -929,40 +883,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/medium2-success.txt">
+    <entry file="file://$PROJECT_DIR$/src/test/com/awave/ShapeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        <state relative-caret-position="305">
+          <caret line="280" column="8" lean-forward="false" selection-start-line="280" selection-start-column="8" selection-end-line="280" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/medium1-success.txt">
+    <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Block.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="468">
+          <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/awave/PolyominoSolver.java">
+    <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+        <state relative-caret-position="271">
+          <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
-            <element signature="e#443#444#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/awave/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#460#461#0" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#2513#2514#0" expanded="true" />
+            <element signature="e#2559#2560#0" expanded="true" />
+            <element signature="e#3298#3299#0" expanded="true" />
+            <element signature="e#3326#3327#0" expanded="true" />
+            <element signature="e#3356#3357#0" expanded="true" />
+            <element signature="e#3385#3386#0" expanded="true" />
+            <element signature="e#3410#3411#0" expanded="true" />
+            <element signature="e#3451#3452#0" expanded="true" />
+            <element signature="e#3494#3495#0" expanded="true" />
+            <element signature="e#3523#3524#0" expanded="true" />
+            <element signature="e#3582#3583#0" expanded="true" />
+            <element signature="e#3628#3629#0" expanded="true" />
+            <element signature="e#3670#3671#0" expanded="true" />
+            <element signature="e#3704#3705#0" expanded="true" />
+            <element signature="e#3736#3737#0" expanded="true" />
+            <element signature="e#3769#3770#0" expanded="true" />
+            <element signature="e#4339#4340#0" expanded="true" />
+            <element signature="e#4419#4420#0" expanded="true" />
+            <element signature="e#4456#4457#0" expanded="true" />
+            <element signature="e#4517#4518#0" expanded="true" />
+            <element signature="e#4549#4550#0" expanded="true" />
+            <element signature="e#4597#4598#0" expanded="true" />
           </folding>
         </state>
       </provider>

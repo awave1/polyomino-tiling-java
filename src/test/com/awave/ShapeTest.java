@@ -267,4 +267,18 @@ public class ShapeTest {
 
         assertEquals(shape.getTransformedShapes().size(), 2);
     }
+
+    @Test
+    public void rotateCurrent_shouldRotatate() throws Exception {
+        shape = new Shape("a");
+
+        shape.addBlock(0, 0);
+        shape.addBlock(1, 0);
+        shape.addBlock(1, 1);
+        shape.addBlock(2, 0);
+        shape.addBlock(3, 0);
+
+        System.out.println(shape.rotate());
+        shape.rotateCurrent();
+    }
 }

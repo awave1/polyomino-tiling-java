@@ -110,6 +110,14 @@ public class Shape {
             shapes.add(this.rotate());
         }
 
+        ArrayList<Shape> unique = new ArrayList<>();
+        for (Shape shape : shapes) {
+            if (!unique.contains(shape))
+                unique.add(shape);
+            else
+                unique.remove(shape);
+        }
+
         return shapes;
     }
 
@@ -174,5 +182,39 @@ public class Shape {
     public int getFirstOccupiedBlockIndex() {
 
         return firstOccupiedBlockIndex;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Shape shape = (Shape) o;
+        boolean blocksMatch = true;
+
+        if (width != shape.width) return false;
+        if (height != shape.height) return false;
+        if (!blocks.equals(shape.blocks)) return false;
+
+        for (int i = 0; i < blocks.size() && blocksMatch; i++) {
+            Block a = blocks.get(i);
+            for (int j = 0; j < shape.blocks.size(); j++) {
+                Block b = shape.blocks.get(j);
+                if (!a.equals(b))
+                    blocksMatch = false;
+            }
+        }
+
+        return blocksMatch && label.equals(shape.label);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = blocks.hashCode();
+        result = 31 * result + label.hashCode();
+        result = 31 * result + width;
+        result = 31 * result + height;
+        return result;
     }
 }
