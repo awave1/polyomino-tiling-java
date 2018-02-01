@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13bbaa8e-cbb5-424b-aa58-4a3c5f69226d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/awave/Main.java" afterPath="$PROJECT_DIR$/src/com/awave/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java" afterPath="$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/awave/PolyominoSolver.java" afterPath="$PROJECT_DIR$/src/com/awave/PolyominoSolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/awave/ShapeTest.java" afterPath="$PROJECT_DIR$/src/test/com/awave/ShapeTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PolyominoSolver.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PolyominoSolver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/awave/PolyominoSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="43" column="46" lean-forward="false" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+            <state relative-caret-position="332">
+              <caret line="28" column="14" lean-forward="false" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/awave/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+            <state relative-caret-position="108">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -42,7 +39,7 @@
       <file leaf-file-name="Grid.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Grid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
+            <state relative-caret-position="1188">
               <caret line="85" column="39" lean-forward="false" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
               <folding>
                 <element signature="method#Grid#0;class#Grid#0" expanded="false" />
@@ -65,8 +62,8 @@
       <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+            <state relative-caret-position="189">
+              <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#453#454#0" expanded="true" />
@@ -193,15 +190,15 @@
         <option value="$PROJECT_DIR$/src/com/awave/BoardRunner.java" />
         <option value="$PROJECT_DIR$/src/com/awave/utils/BoardRunner.java" />
         <option value="$PROJECT_DIR$/src/com/awave/utils/Utils.java" />
-        <option value="$PROJECT_DIR$/src/com/awave/Polyomino/Grid.java" />
         <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/medium2-success.txt" />
         <option value="$PROJECT_DIR$/medium1-success.txt" />
         <option value="$PROJECT_DIR$/src/com/awave/Polyomino/Block.java" />
         <option value="$PROJECT_DIR$/src/test/com/awave/ShapeTest.java" />
         <option value="$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java" />
-        <option value="$PROJECT_DIR$/src/com/awave/PolyominoSolver.java" />
+        <option value="$PROJECT_DIR$/src/com/awave/Polyomino/Grid.java" />
         <option value="$PROJECT_DIR$/src/com/awave/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/awave/PolyominoSolver.java" />
       </list>
     </option>
   </component>
@@ -547,7 +544,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137024000" />
+    <option name="totallyTimeSpent" value="137841000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="26" y="0" width="1654" height="1050" extended-state="6" />
@@ -562,9 +559,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.50215983" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6712042" sideWeight="0.49784017" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.49784017" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31885856" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -884,20 +881,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/awave/PolyominoSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="43" column="46" lean-forward="false" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="189">
+          <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#453#454#0" expanded="true" />
@@ -932,7 +919,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/awave/Polyomino/Grid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
+        <state relative-caret-position="1188">
           <caret line="85" column="39" lean-forward="false" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
           <folding>
             <element signature="method#Grid#0;class#Grid#0" expanded="false" />
@@ -953,9 +940,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/awave/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/awave/PolyominoSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="28" column="14" lean-forward="false" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

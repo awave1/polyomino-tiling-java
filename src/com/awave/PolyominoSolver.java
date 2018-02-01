@@ -26,7 +26,6 @@ public class PolyominoSolver {
 
     /**
      * Recursive solver
-     *
      * @return
      */
     private boolean recursiveSolve() {
@@ -37,11 +36,10 @@ public class PolyominoSolver {
 
         // Iterative + recursive backtracking case
         for (Shape shape : shapes) {
-            for (Shape transformedShape : shape.uniqueShapes()) {
+            for (Shape transformedShape : transformed.get(shape.getLabel())) {
                 for (int y = 0; y < grid.rows; y++) {
                     for (int x = 0; x < grid.cols; x++) {
                         if (grid.tryPlacingShape(x, y, transformedShape)) {
-                            System.out.println(grid);
                             if (recursiveSolve())
                                 return true;
                             grid.removeShape(transformedShape);
