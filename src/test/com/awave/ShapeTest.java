@@ -231,11 +231,6 @@ public class ShapeTest {
 
         System.out.println(shape.equals(shape2));
 
-        HashSet<Shape> shapes = shape.uniqueShapes();
-        shapes.forEach(shape1 -> {
-            System.out.println(shape1.hashCode());
-            System.out.println(shape1);
-        });
 
         assertEquals(12, shape.getTransformedShapes().size());
     }

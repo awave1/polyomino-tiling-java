@@ -1,8 +1,6 @@
 package com.awave.Polyomino;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 import java.util.function.Consumer;
 
 /**
@@ -118,7 +116,7 @@ public class Shape {
     }
 
 
-    public HashSet<Shape> uniqueShapes() {
+    public ArrayList<Shape> uniqueShapes() {
         ArrayList<Shape> shapes = new ArrayList<>();
         ArrayList<Shape> temp = new ArrayList<>(4);
         shapes.add(this);
@@ -141,9 +139,8 @@ public class Shape {
             shapes.add(this.rotate());
         }
 
-        HashSet<Shape> unique = new HashSet<>(shapes);
 
-        return unique;
+        return new ArrayList<>(new LinkedHashSet<>(shapes));
     }
 
     public int getWidth() {

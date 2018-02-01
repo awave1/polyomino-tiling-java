@@ -26,6 +26,7 @@ public class Utils {
         int shapeCount = filein.nextInt();
         filein.nextLine(); // skip the newline
 
+        char label = 'a';
         for (int i = 0; i < shapeCount; i++) {
             ArrayList<String> shapeFormat = new ArrayList<>(Arrays.asList(filein.nextLine().split("\\s{2}")));
             int blockCount = Integer.parseInt(shapeFormat.remove(0));
@@ -39,7 +40,7 @@ public class Utils {
                     shape.addBlock(new Block(x, y));
                 });
             }
-            shape.setLabel(randChar());
+            shape.setLabel(String.valueOf(label++));
             shapes.add(shape);
         }
 
@@ -48,22 +49,10 @@ public class Utils {
         return boardContents;
     }
 
-    /**
-     * Pseudo random character generator
-     * @return single random character
-     */
-    public static String randChar() {
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        return String.valueOf(alphabet.charAt(new Random().nextInt(alphabet.length())));
-    }
 
     public static class BoardContents {
         public ArrayList<Shape> shapes;
         public int rows;
         public int cols;
-    }
-
-    public static void format(String s, Object... args) {
-        System.out.format(s, args);
     }
 }
