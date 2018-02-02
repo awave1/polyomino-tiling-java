@@ -1,8 +1,12 @@
-package com.awave.utils;
+/**
+ * @author: Artem Golovin
+ */
 
-import com.awave.Polyomino.Grid;
-import com.awave.Polyomino.Shape;
-import com.awave.PolyominoSolver;
+package com.agolo124.utils;
+
+import com.agolo124.Polyomino.Grid;
+import com.agolo124.Polyomino.Shape;
+import com.agolo124.PolyominoSolver;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

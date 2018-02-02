@@ -1,24 +1,19 @@
-package com.awave.Polyomino;
+/**
+ * @author: Artem Golovin
+ */
+
+package com.agolo124.Polyomino;
 
 import java.util.*;
 import java.util.function.Consumer;
 
-/**
- * Shape is a list of blocks
- */
 public class Shape {
     private ArrayList<Block> blocks;
 
     private String label;
 
-    // By default set width and height to 1
     private int width = 0;
     private int height = 0;
-    private int firstOccupiedBlockIndex;
-
-    public Shape(ArrayList<Block> blocks) {
-        this.blocks = blocks;
-    }
 
     public Shape() {
         this.blocks = new ArrayList<>();
@@ -63,9 +58,8 @@ public class Shape {
     }
 
     /**
-     * Reflection:
-     * 0 - (x, y) => (-x, y)
-     * 1 - (x, y) => (x, -y)
+     * Reflect using following map:
+     *      (x, y) => (-x, y)
      */
     public Shape reflectY() {
         Shape shape = new Shape(getLabel());
@@ -77,6 +71,10 @@ public class Shape {
         return shape;
     }
 
+    /**
+     * Reflex using following map:
+     *      (x, y) => (x, -y)
+     */
     public Shape reflectX() {
         Shape shape = new Shape(getLabel());
         forEachBlock(block -> {
@@ -91,37 +89,14 @@ public class Shape {
         blocks.forEach(this::addBlock);
     }
 
+    /**
+     * Generates array of unique transformed elements
+     * @return list of Shapes
+     */
     public ArrayList<Shape> getTransformedShapes() {
         ArrayList<Shape> shapes = new ArrayList<>();
         ArrayList<Shape> temp = new ArrayList<>(4);
         shapes.add(this);
-
-        if (!this.isSquare() && !this.isLine() && !this.isRectangle()) {
-
-            for (int i = 0; i < 3; i++)
-                shapes.add(shapes.get(shapes.size() - 1).rotate());
-
-            shapes.forEach(shape -> temp.add(shape.reflectX()));
-            shapes.addAll(new ArrayList<Shape>() {{
-                shapes.forEach(shape -> add(shape.reflectY()));
-            }});
-            shapes.addAll(temp);
-
-
-        } else if (this.isLine() || this.isRectangle()) {
-            shapes.add(this.rotate());
-        }
-
-        return shapes;
-    }
-
-
-    public ArrayList<Shape> uniqueShapes() {
-        ArrayList<Shape> shapes = new ArrayList<>();
-        ArrayList<Shape> temp = new ArrayList<>(4);
-        shapes.add(this);
-
-        int id = 0;
 
         if (!this.isSquare() && !this.isLine() && !this.isRectangle()) {
 
@@ -199,11 +174,6 @@ public class Shape {
 
     private boolean isLine() {
         return width == 1 || height == 1;
-    }
-
-    public int getFirstOccupiedBlockIndex() {
-
-        return firstOccupiedBlockIndex;
     }
 
     @Override

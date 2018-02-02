@@ -1,8 +1,7 @@
 package test.com.awave;
 
-import com.awave.Polyomino.Grid;
-import com.awave.Polyomino.Shape;
-import org.junit.Before;
+import com.agolo124.Polyomino.Grid;
+import com.agolo124.Polyomino.Shape;
 import org.junit.Test;
 
 public class GridTest {

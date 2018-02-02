@@ -1,4 +1,8 @@
-package com.awave.Polyomino;
+/**
+ * @author: Artem Golovin
+ */
+
+package com.agolo124.Polyomino;
 
 
 import java.util.ArrayList;
@@ -131,5 +135,9 @@ public class Grid {
             }
         }
         return emptyCount == 0;
+    }
+
+    public int getArea() {
+        return rows * cols;
     }
 }

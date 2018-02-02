@@ -1,12 +1,15 @@
-package com.awave.utils;
+/**
+ * @author: Artem Golovin
+ */
 
-import com.awave.Polyomino.Block;
-import com.awave.Polyomino.Shape;
+package com.agolo124.utils;
+
+import com.agolo124.Polyomino.Block;
+import com.agolo124.Polyomino.Shape;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils {
     public static BoardContents parseFile(String filename) throws FileNotFoundException {
@@ -35,6 +38,7 @@ public class Utils {
         for (int i = 0; i < shapeCount; i++) {
             ArrayList<String> shapeFormat = new ArrayList<>(Arrays.asList(filein.nextLine().split("\\s{2}")));
             int blockCount = Integer.parseInt(shapeFormat.remove(0));
+            boardContents.totalBlocks += blockCount;
             Shape shape = new Shape();
 
             if (blockCount == shapeFormat.size()) {
@@ -59,5 +63,6 @@ public class Utils {
         public ArrayList<Shape> shapes;
         public int rows;
         public int cols;
+        public static int totalBlocks;
     }
 }

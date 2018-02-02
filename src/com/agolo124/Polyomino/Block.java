@@ -1,4 +1,8 @@
-package com.awave.Polyomino;
+/**
+ * @author: Artem Golovin
+ */
+
+package com.agolo124.Polyomino;
 
 public class Block {
     private int y;

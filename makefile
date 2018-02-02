@@ -1,7 +1,7 @@
 SRC_DIR = ./src/com/awave 
 JAVA_SRC = $(shell find $(SRC_DIR) -name "*.java") 
 CLASS_DIR = out
-MAIN = com.awave.Main
+MAIN = com.agolo124.Tiling
 
 all: build
 	java -cp $(CLASS_DIR) $(MAIN) 

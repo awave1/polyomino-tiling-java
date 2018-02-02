@@ -1,11 +1,8 @@
 package test.com.awave;
 
-import com.awave.Polyomino.Block;
-import com.awave.Polyomino.Grid;
-import com.awave.Polyomino.Shape;
-
-import java.util.ArrayList;
-import java.util.HashSet;
+import com.agolo124.Polyomino.Block;
+import com.agolo124.Polyomino.Grid;
+import com.agolo124.Polyomino.Shape;
 
 import static org.junit.Assert.*;
 

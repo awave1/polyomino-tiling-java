@@ -1,7 +1,12 @@
-package com.awave;
+/**
+ * @author: Artem Golovin
+ */
 
-import com.awave.Polyomino.Grid;
-import com.awave.Polyomino.Shape;
+package com.agolo124;
+
+import com.agolo124.Polyomino.Grid;
+import com.agolo124.Polyomino.Shape;
+import com.agolo124.utils.Utils.BoardContents;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,15 +24,16 @@ public class PolyominoSolver {
     }
 
     public void solve() {
-        shapes.forEach(shape -> transformed.put(shape.getLabel(), shape.uniqueShapes()));
+        // pre-calculate all the rotations
+        shapes.forEach(shape -> transformed.put(shape.getLabel(), shape.getTransformedShapes()));
         long start = System.currentTimeMillis();
-        System.out.println(this.recursiveSolve() ? grid : "No solution found.");
+        System.out.println(grid.getArea() >= BoardContents.totalBlocks && this.recursiveSolve() ? grid : "No solution found.");
         System.out.printf("Took: %fs\n", (System.currentTimeMillis() - start) * 0.001);
     }
 
     /**
      * Recursive solver
-     * @return
+     * @return true if solved
      */
     private boolean recursiveSolve() {
 
