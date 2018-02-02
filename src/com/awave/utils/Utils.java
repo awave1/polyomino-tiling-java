@@ -10,10 +10,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils {
     public static BoardContents parseFile(String filename) throws FileNotFoundException {
-        BoardContents boardContents = new BoardContents();
+        return parse(new Scanner(new File(filename)));
+    }
 
-        File file = new File(filename);
-        Scanner filein = new Scanner(file);
+    public static BoardContents parseFile() throws FileNotFoundException {
+        return parse(new Scanner(System.in));
+    }
+
+    private static BoardContents parse(Scanner filein) {
+        BoardContents boardContents = new BoardContents();
 
         int rows = filein.nextInt();
         int cols = filein.nextInt();
